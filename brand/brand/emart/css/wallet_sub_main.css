@@ -1,0 +1,115 @@
+@charset "UTF-8";
+/* sass 변수 정의  */
+/************************************************************/
+/* 컬러 컨셉 이분분에서 수정 */
+/* 태마 컨셉 컬러 */
+/* 태마 컨셉 라인 & 폰트 컬러 */
+/* 태마 일반 dark 폰트 컬러 */
+/* light 폰트 컬러 */
+/* wallet_ */
+/* emart24 */
+.container {
+  /* 버튼 하나 일 경우  */ }
+  .container .section {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #FBDA33; }
+  .container .info_box {
+    z-index: 10;
+    position: absolute;
+    bottom: 2.90625rem;
+    left: -5.53125rem;
+    width: 15.53125rem;
+    height: 100%;
+    background-color: #FBDA33;
+    transform: rotate(-23deg); }
+  .container .shop_main_img {
+    position: relative;
+    width: 10rem;
+    margin-left: 6rem;
+    padding-top: 6.5625rem;
+    transform: rotate(23deg); }
+  .container .btn_group {
+    z-index: 8;
+    width: 10rem;
+    height: 4.34375rem;
+    position: absolute;
+    bottom: 1.171875rem;
+    background-color: #00498C; }
+    .container .btn_group a {
+      with: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end; }
+      .container .btn_group a p {
+        font-size: 0.390625rem;
+        color: #fff;
+        padding-bottom: 0.390625rem;
+        padding-right: 0.59375rem; }
+    .container .btn_group .btn_point {
+      height: 2.796875rem;
+      background-color: #F79300; }
+    .container .btn_group .btn_gift {
+      height: 1.453125rem; }
+  .container.one_btn .info_box {
+    bottom: 1.625rem;
+    left: -5.6875rem;
+    width: 15.53125rem;
+    transform: rotate(-8deg); }
+  .container.one_btn .shop_main_img {
+    padding-top: 2.34375rem;
+    transform: rotate(8deg); }
+  .container.one_btn .btn_group {
+    height: 2.03125rem; }
+    .container.one_btn .btn_group .btn_gift {
+      height: 100%; }
+
+.btn_map {
+  position: fixed;
+  z-index: 16;
+  left: 0.796875rem;
+  bottom: 1.125rem;
+  height: 1.1875rem; }
+  .btn_map .icon_map {
+    width: 0.578125rem;
+    margin-right: 0.15625rem; }
+  .btn_map p {
+    font-weight: bold;
+    font-size: 0.390625rem;
+    color: #00498C; }
+
+/* text */
+.text_container {
+  /* 버튼 하나 일 경우  */ }
+  .text_container .text_content {
+    width: 8.234375rem;
+    margin-left: 6rem;
+    padding-top: 6.5625rem;
+    transform: rotate(23deg); }
+  .text_container .content_top {
+    width: 8.4375rem;
+    height: 3.328125rem;
+    background-color: rgba(0, 0, 0, 0.02); }
+  .text_container .logo_img {
+    max-width: 100%;
+    max-height: 100%; }
+  .text_container .h3 {
+    width: 100%;
+    margin-top: 0.3125rem;
+    margin-bottom: 0.234375rem;
+    font-weight: bold;
+    line-height: 0.6875rem;
+    font-size: 0.46875rem; }
+  .text_container .shop_info {
+    width: 100%; }
+    .text_container .shop_info p {
+      line-height: 0.453125rem;
+      font-size: 0.3125rem; }
+  .text_container .shop_intro .h4 {
+    display: inline-block;
+    padding-top: 0.234375rem;
+    border-top: 0.015625rem solid #707070; }
+  .text_container.one_btn .text_content {
+    padding-top: 2.34375rem;
+    transform: rotate(8deg); }

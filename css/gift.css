@@ -1,0 +1,66 @@
+@charset "UTF-8";
+/* sass 변수 정의  */
+/************************************************************/
+/* 컬러 컨셉 이분분에서 수정 */
+/* 태마 컨셉 컬러 */
+/* 태마 컨셉 컬러의 어두운 컬러로 버튼 테두리 컬러*/
+/* 태마 컨셉 라인 & 폰트 컬러 */
+/* sub category off 일때 배경 컬러 */
+/* 태마 일반 dark 폰트 컬러 */
+/* light 폰트 컬러 */
+body {
+  background-color: #fff; }
+
+.section {
+  padding-top: 1.96875rem; }
+
+form {
+  padding: 0 0.390625rem;
+  border-bottom: 0.15625rem solid #F4F4F4; }
+  form ul li {
+    margin-bottom: 0.9375rem; }
+    form ul li label {
+      width: 100%;
+      display: block;
+      margin-bottom: 0.4375rem;
+      font-size: 0.46875rem; }
+    form ul li input {
+      width: 8.59375rem;
+      height: 1.21875rem;
+      padding: 0 0.3125rem;
+      border: 0.015625rem solid #B2B2B2;
+      font-size: 0.40625rem; }
+    form ul li input::-webkit-input-placeholder, form ul li textarea::-webkit-input-placeholder {
+      color: #AAAAAA; }
+
+.total_count p {
+  padding: 0.625rem 0.390625rem 0.3125rem;
+  font-size: 0.46875rem; }
+.total_count .title {
+  color: #666666; }
+.total_count.total_quantity {
+  border-bottom: 0.015625rem solid #EFEFEF; }
+
+.btn_box {
+  position: fixed;
+  bottom: 0.390625rem;
+  left: 0.390625rem;
+  width: 9.21875rem;
+  margin: 0 auto; }
+  .btn_box a {
+    width: 4.484375rem;
+    height: 1.25rem; }
+    .btn_box a.btn_left {
+      box-sizing: border-box;
+      border: 0.015625rem solid #00498C; }
+      .btn_box a.btn_left p {
+        color: #00498C; }
+    .btn_box a.btn_right {
+      background-color: #00498C; }
+      .btn_box a.btn_right p {
+        color: #fff; }
+  .btn_box p {
+    font-weight: bold;
+    font-size: 0.4375rem; }
+
+/*# sourceMappingURL=gift.css.map */

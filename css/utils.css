@@ -1,0 +1,121 @@
+.container footer a p {
+    margin-bottom: 0.906250rem; /* 2018-04-13 수정 */
+
+}
+
+.container_box{
+
+    overflow: hidden;
+
+}
+ .icon_menu.bg_cover.on {
+     opacity: 1!important;
+}
+
+
+ .loading_parent {
+
+     position: fixed;
+     top: 0px;
+     height: 100%;
+     width: 100%;
+     background-color: rgba(0, 0, 0, 0.5);
+     z-index: 100;
+
+ }
+ .loading_sub {
+     background-image: url('../images/icon_loading.png');
+     background-repeat: no-repeat;
+     background-size: 50px 50px;
+     background-position: 50% center;
+     position: absolute;
+     top: 0px;
+     width: 100%;
+     height: 100%;
+     animation: loading_circle_spin 1s linear infinite;
+
+ }
+
+
+
+
+.disable_box {
+    position: absolute;
+    top: 4.171875rem;
+    width: 100%;
+    z-index: 15;
+}
+.disable_box .disable_mark {
+    position: absolute;
+    top: 0;
+    width: 4.96875rem; }
+.disable_box ul {
+    position: relative;
+    flex-direction: column;
+    width: 4.96875rem;
+    height: 4.21875rem;
+    padding-top: 0.75rem; }
+.disable_box ul li:last-child {
+    margin-top: 0.34375rem; }
+.disable_box ul li p {
+    line-height: 0.46875rem;
+    font-size: 0.34375rem;
+    color: #fff; }
+.disable_box .content {
+    font-weight: lighter;
+    background-color: #fff0;
+    border: none;
+}
+
+
+
+#echoss_icon_wrap * {
+
+    color: #fff;
+
+}
+
+
+/**/
+.container .category ul li:last-child{
+    margin-right: initial;
+}
+
+/**/
+
+.container .article_3 {
+    top: -2.76rem!important;
+}
+
+.history_list ul .left{
+    width: 6.03125rem!important;
+}
+
+.coupon_info .product_name{
+    width: auto!important;
+}
+
+.link:link {
+    color: #23527c;
+}
+.link:visited {
+    color: Purple;
+}
+
+.method_use .method_bar_code img{
+    width: auto!important;
+}
+
+.method_use .method_bar_code{
+    padding: 0!important;
+}
+
+
+.container .category ul li:last-child{
+
+    /*padding-right: 0.84375rem!important;*/
+
+}
+
+ #echoss_icon_stamp_no_input {font-size: 0.8em !important;}
+#echoss_icon_popup > div > div > p {font-size: 15px !important;}

@@ -1,0 +1,147 @@
+@charset "UTF-8";
+/* sass 변수 정의  */
+/************************************************************/
+/* 태마 컨셉 컬러 */
+/* 태마 컨셉 라인 & 폰트 컬러 */
+/* 태마 일반 dark 폰트 컬러 */
+/* light 폰트 컬러 */
+/* swiper */
+.swiper-container.main_swiper {
+  width: 100%;
+  height: 4.21875rem; }
+  .swiper-container.main_swiper .swiper-slide a {
+    display: block;
+    width: 100%;
+    height: 100%; }
+
+.swiper-container .main-pagination.swiper-pagination-bullets {
+  bottom: 0.09375rem; }
+.swiper-container .recommend_pagination.swiper-pagination-bullets {
+  bottom: auto;
+  top: 0.15625rem;
+  text-align: right; }
+  .swiper-container .recommend_pagination.swiper-pagination-bullets .swiper-pagination-bullet {
+    position: relative;
+    right: 0;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.2); }
+.swiper-container .swiper-pagination-bullet {
+  width: 6px;
+  height: 6px;
+  background-color: #fff;
+  opacity: 1; }
+  .swiper-container .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: #303030; }
+
+.swiper-container.recommend_swiper {
+  width: 9.125rem;
+  margin-top: -1.28125rem;
+  padding-top: 1.609375rem; }
+  .swiper-container.recommend_swiper .swiper-slide a {
+    width: 3.875rem;
+    padding: 0.28125rem;
+    background-color: #fff; }
+
+/*# sourceMappingURL=main.css.map */
+
+/** 인기 카테고리 , 인기 브랜드 */
+
+.rmd_category{
+
+}
+
+.rmd_menu_title{
+  font-size: .4rem;
+  padding: .4rem 0 .4rem .5rem;
+}
+
+.rmd_category_list {
+  display: flex;
+  margin: 0 0 .5rem 0;
+}
+
+.rmd_category_list > div {
+  width: 50%;
+  min-height: 3.7rem;
+}
+
+.rmd_category_list > div:first-child img{
+  width: 100%;
+  height: 100%;
+}
+
+
+.rmd_category_list > div:last-child > div {
+  float: left;
+  width: 48%;
+  height: 49%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.rmd_category_list > div:last-child > div > div {
+  display: block;
+  width: 100%;
+  font-size: .3rem;
+  text-align: center;
+  /*height: 100%;*/
+}
+
+/*.rmd_category_list > div:last-child > div > div > div:first-child{*/
+  /*align-items: center;*/
+  /*display: flex;*/
+  /*justify-content: center;*/
+  /*height: 70%;*/
+/*}*/
+
+/*.rmd_category_list > div:last-child > div > div > div:last-child{*/
+  /*height: 30%;*/
+/*}*/
+
+.rmd_category_list > div:last-child > div > div > div  > img {
+  height:.6rem;
+  padding: .1rem 0;
+}
+
+.rmd_category_list > div:last-child > div:nth-child(1){
+  margin: 0 1% 1% 2% ;
+}
+.rmd_category_list > div:last-child > div:nth-child(2){
+  margin: 0 0 1% 1%;
+}
+.rmd_category_list > div:last-child > div:nth-child(3){
+  margin: 1% 1% 0 2%;
+}
+.rmd_category_list > div:last-child > div:nth-child(4){
+  margin: 1% 0 0 1%;
+}
+
+
+.rmd_brand_list{
+  width: 9.5rem;
+  height: 5rem;
+  padding: 0 0.25rem;
+}
+
+.rmd_brand_list > div{
+  width: 2.375rem;
+  height: 2.375rem;
+  float: left;
+}
+
+.rmd_brand_list > div > div {
+  width: 2rem;
+  height: 2rem;
+  margin: .25rem;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow:0 0 15px #dcdcdc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rmd_brand_list > div > div > img{
+  width: 1.35rem;
+}

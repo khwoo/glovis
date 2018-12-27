@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=0.5"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>Echoss Mall</title>
+    <link href="../css/style.css" rel="stylesheet" />
+    <script type="text/javascript" src="../js/lib/vue.min.js"></script>
+    <script type="text/javascript" src="../js/px2rem.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <div v-cloak class="container_box">
+        <div class="nav flex_center">
+            <a class="btn_back flex_center" :href="appLink">
+                <img src="../images/icon_back.png"/>
+            </a>
+            <p class="title">자동차 극장 혜택 소개</p>
+        </div>
+        <div class="section" style="overflow: hidden;">
+            <img style="width:100%;display: block;" src="image/event07/event07-2.png">
+            <img style="width: 70%;
+    display: block;
+    margin: 0.3rem auto;" @click="bannerclick" src="image/event07/event07-1.png">
+            <img style="width:100%;display: block;" src="image/event07/event07-3.png">
+        </div> <!-- end of .section -->
+    </div><!-- end of .container_box -->
+</div>
+
+<script type="text/javascript" src="../js/lib/utils.js"></script>
+<script type="text/javascript" src="js/banner_details7.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1, minimum-scale=0.5"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>Echoss Mall</title>
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/wallet_sub_main.css" rel="stylesheet"/>
+    <script type="text/javascript" src="../../js/lib/vue.min.js"></script>
+    <script type="text/javascript" src="../../js/px2rem.js"></script>
+</head>
+<body>
+<div class="container" :class="{one_btn:oneBtn}">
+    <div v-cloak class="container_box">
+
+        <div class="nav flex_center">
+            <!--<a class="btn_back flex_center" v-on:click="wallet_url" >-->
+            <a class="btn_back flex_center" :href="appLink">
+                <img src="../../images/icon_back.png"/>
+            </a>
+            <p class="title">{{navTitle}}</p>
+            <a class="btn_coupon_box flex_center" :href="coupon_box">
+                <img src="../../images/icon_coupon_box.png"/>
+            </a>
+        </div>
+
+        <div class="section" :style="{backgroundColor:backgroundColor}">
+            <div class="info_box  flex_center" :style="{backgroundColor:backgroundColor}">
+                <div class="img_box flex_center">
+                    <img class="shop_main_img" :src="shopSrc"/>
+                </div>
+            </div>
+            <div class="btn_group">
+                <a v-if="!oneBtn" class="btn_point" :href="point_use_url">
+                    <p>포인트사용하기 > </p>
+                </a>
+                <a  class="btn_gift" :href="brand_gift_url">
+                    <p>포인트 구매/선물하기 > </p>
+                </a>
+            </div>
+
+        </div>
+        <a v-if="hasMap" class="btn_map flex_center" href="javascript:void(0)">
+            <img class="icon_map" src="../../images/icon_map.png"/>
+            <p>지도 > </p>
+        </a>
+    </div><!-- end of .container_box -->
+</div>
+<script type="text/javascript" src="http://61.35.35.203:45270/resource/js/pointMall-api.js"></script>
+<script type="text/javascript" src="../../js/lib/utils.js" ></script>
+<script type="text/javascript" src="js/wallet_submain_img.js"></script>
+
+</body>
+</html>

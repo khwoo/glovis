@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1, minimum-scale=0.5"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>Echoss Mall</title>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="css/wallet_sub_main.css" rel="stylesheet"/>
+    <script type="text/javascript" src="../../js/lib/vue.min.js"></script>
+    <script type="text/javascript" src="../../js/px2rem.js"></script>
+</head>
+<body>
+<div class="container">
+    <div v-cloak class="container_box">
+        <div class="nav flex_center">
+            <a class="btn_back flex_center" href="javascript:history.back();">
+                <img src="../../images/icon_back.png"/>
+            </a>
+            <p class="title">제주항공</p>
+        </div>
+        <div class="section">
+            <div class="info_box flex_column_center">
+                <div class="text_content flex_column_center">
+                    <div class="content_top flex_center">
+                        <img class="logo_img" src="../../images/logo_shop01.png"/>
+                    </div>
+                    <p class="h3">
+                        제주항공의 국제선, 국내선 예약 시<br/>
+                        이용가능한 1만원권 쿠폰을<br/>
+                        블루멤버스 포인트로 구매하세요!
+                    </p>
+                    <div class="shop_info">
+                        <p>
+                            블루멤버스 포인트 보유 회원에게만 제공되는<br/>
+                            특별한 혜택을 누르세요
+                        </p>
+                    </div>
+                    <div class="shop_info shop_intro">
+                        <p class="h4">상품 안내</p>
+                        <p>
+                            1.국내선 편도 10,000원 할인권 → 9,800 포인트로 구매 가능합니다.<br/>
+                            2.국내선 왕복 10,000원 할인권 → 9,800 포인트로 구매 가능합니다.<br/>
+                            3.국제선 편도 10,000원 할인권 → 9,800 포인트로 구매 가능합니다.<br/>
+                            4.국제선 왕복 10,000원 할인권 → 9,800 포인트로 구매 가능합니다.<br/>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="btn">
+                <a class="btn_gift" :href="brand_gift_url">
+                    <p>선물하기 > </p>
+                </a>
+            </div>
+        </div>
+        <a class="btn_info flex_center" href="javascript:void(0)" @click="alertDirection=true">
+            <img class="icon_info" src="../../images/icon_info.png"/>
+            <p>이용안내 > </p>
+        </a>
+        <!-- modal -->
+        <transition name="fade">
+            <div v-if="alertDirection" class="modal alert alert_direction">
+                <div class="bg_shadow flex_column_center">
+                    <div class="modal_box flex_column_center">
+                        <p class="title">{{alertTitle}}</p>
+                        <div v-for="item in contentList">
+                            <p class="h6">{{item.title}}</p>
+                            <p class="alert_content" v-html="item.content">{{item.content}}</p>
+                        </div>
+                        <div class="btn_group flex_between">
+                            <a class="btn_one flex_center" href="javascript:void(0)" @click="alertDirection=false">
+                                <p>확인</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </div><!-- end of .container_box -->
+</div>
+<script type="text/javascript" src="../../js/lib/utils.js"></script>
+<script type="text/javascript" src="js/wallet_submain_1.js" ></script>
+
+</body>
+</html>

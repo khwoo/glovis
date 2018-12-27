@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1, minimum-scale=0.5"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>Echoss Mall</title>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="css/wallet_sub_main.css" rel="stylesheet"/>
+    <script type="text/javascript" src="../../js/lib/vue.min.js"></script>
+    <script type="text/javascript" src="../../js/px2rem.js"></script>
+
+    <style>
+
+        .alert_content .before{
+            padding: 0 0 0 0.2rem!important;
+        }
+        .alert_content.before.on:before{
+
+            content: "- ";
+            margin:  0 0 0 -0.2rem;
+
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div v-cloak class="container_box two_btn_content">
+        <div class="nav flex_center">
+            <a class="btn_back flex_center" :href="appLink">
+                <img src="../../images/icon_back.png"/>
+            </a>
+            <p class="title">제주항공</p>
+        </div>
+        <div class="section">
+            <div class="info_box flex_column_center">
+                <div class="text_content flex_column_center">
+                    <div class="content_top flex_center">
+                        <img class="logo_img" src="../../images/logo_shop01.png"/>
+                    </div>
+                    <p class="h3">
+                        제주항공의 국제선, 국내선 예약 시<br/>
+                        이용가능한 1만원권 쿠폰을<br/>
+                        블루멤버스 포인트로 구매하세요!
+                    </p>
+                    <div class="shop_info">
+                        <p>
+                            블루멤버스 포인트 보유 회원에게만 제공되는<br/>
+                            특별한 혜택을 누리세요
+                        </p>
+                    </div>
+                    <div class="shop_info shop_intro">
+                        <p class="h4">상품 안내</p>
+                        <p>
+                            국내선 편도/왕복, 국제선 편도/왕복 4가지 상품으로 구성되어 있습니다.<br/>
+                            이용하실 노선에 따라 상품을 선택해서 구매해 주세요.<br/>
+                        </p>
+                        <p class="h3">
+                            제주항공 사이트에서 쿠폰을 등록 후 사용해야 합니다.<br/>
+                            쿠폰사용안내를 꼭 확인해주세요.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="btn">
+                <a class="btn_top" href="use_guide.html">
+                    <p>쿠폰사용안내 > </p>
+                </a>
+                <a class="btn_bottom" :href="brand_gift_url">
+                    <p>포인트 구매/선물하기 > </p>
+                </a>
+            </div>
+        </div>
+        <a class="btn_info flex_center" href="javascript:void(0)" @click="alertDirection=true">
+            <img class="icon_info" src="../../images/icon_info.png"/>
+            <p>이용안내 > </p>
+        </a>
+        <!-- modal -->
+        <transition name="fade">
+            <div v-if="alertDirection" class="modal alert alert_direction">
+                <div class="bg_shadow flex_column_center">
+                    <div class="modal_box flex_column_center">
+                        <p class="title">{{alertTitle}}</p>
+                        <div v-for="item in contentList">
+                            <p class="h6">{{item.title}}</p>
+                            <p class="alert_content" v-html="item.content">{{item.content}}</p>
+                        </div>
+                        <div class="btn_group flex_between">
+                            <a class="btn_one flex_center" href="javascript:void(0)" @click="alertDirection=false">
+                                <p>확인</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </div><!-- end of .container_box -->
+</div>
+<script type="text/javascript" src="http://61.35.35.203:45270/resource/js/pointMall-api.js"></script>
+<script type="text/javascript" src="../../js/lib/utils.js"></script>
+<script type="text/javascript" src="js/wallet_submain_1.js" ></script>
+
+</body>
+</html>

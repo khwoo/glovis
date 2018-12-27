@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1, minimum-scale=0.5"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>Echoss Mall</title>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="css/wallet_sub_main.css" rel="stylesheet"/>
+    <script type="text/javascript" src="../../js/lib/vue.min.js"></script>
+    <script type="text/javascript" src="../../js/px2rem.js"></script>
+
+    <style>
+
+        .alert_content .before{
+            padding: 0 0 0 0.2rem!important;
+        }
+        .alert_content.before.on:before{
+
+            content: "- ";
+            margin:  0 0 0 -0.2rem;
+
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <div v-cloak class="container_box">
+        <div class="nav flex_center">
+            <a class="btn_back flex_center" :href="appLink">
+                <img src="../../images/icon_back.png"/>
+            </a>
+            <p class="title">구글플레이</p>
+        </div>
+        <div class="section">
+            <div class="info_box flex_column_center">
+                <div class="text_content flex_column_center">
+                    <div class="content_top flex_center">
+                        <img class="logo_img" src="../../images/logo_shop02.png"/>
+                    </div>
+                    <p class="h3">
+                        블루멤버스 회원에게만 제공하는 특별한 혜택!
+                        Google Play 기프트 코드를 블루멤버스 포인트로
+                        구매하세요.
+                    </p>
+                    <div class="shop_info shop_intro">
+                        <p class="h4">상품 안내</p>
+                        <!--<table>-->
+                            <!--<colgroup>-->
+                                <!--<col style="width: 60%;border-right: 1px solid #707070;"/>-->
+                                <!--<col style="width: 40%;"/>-->
+                            <!--</colgroup>-->
+                            <!--<thead>-->
+                            <!--<tr style="border-bottom: 1px solid #707070;">-->
+                                <!--<th scope="col" >상품명</th>-->
+                                <!--<th scope="col" style="text-align: right;">블루멤버스 회원가</th>-->
+                            <!--</tr>-->
+                            <!--</thead>-->
+                            <!--<tbody>-->
+                                <!--<tr v-for="item in table">-->
+                                    <!--<td>{{item.name}}</td>-->
+                                    <!--<td style="text-align: right;">{{item.price}}</td>-->
+                                <!--</tr>-->
+
+                            <!--</tbody>-->
+                        <!--</table>-->
+                        <p>
+                            Google Play 기프트 코드 5,000원권, 10,000원권,30,000원권을 <br/> 블루멤버스 포인트로 구매하실 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="btn">
+                <a class="btn_gift" :href="brand_gift_url">
+                    <p>포인트 구매/선물하기 > </p>
+                </a>
+            </div>
+        </div>
+        <a class="btn_info flex_center" href="javascript:void(0)" @click="alertDirection=true">
+            <img class="icon_info" src="../../images/icon_info.png"/>
+            <p>이용안내 > </p>
+        </a>
+        <!-- modal -->
+        <transition name="fade">
+            <div v-if="alertDirection" class="modal alert alert_direction">
+                <div class="bg_shadow flex_column_center">
+                    <div class="modal_box flex_column_center">
+                        <p class="title">{{alertTitle}}</p>
+                        <div v-for="item in contentList">
+                            <p class="h6">{{item.title}}</p>
+                            <p class="alert_content" v-html="item.content">{{item.content}}</p>
+                        </div>
+                        <div class="btn_group flex_between">
+                            <a class="btn_one flex_center" href="javascript:void(0)" @click="alertDirection=false">
+                                <p>확인</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </div><!-- end of .container_box -->
+</div>
+<script type="text/javascript" src="http://61.35.35.203:45270/resource/js/pointMall-api.js"></script>
+<script type="text/javascript" src="../../js/lib/utils.js" ></script>
+<script type="text/javascript" src="js/wallet_submain_2.js" ></script>
+
+</body>
+</html>

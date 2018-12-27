@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1, minimum-scale=0.5"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>Echoss Mall</title>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="css/wallet_sub_main.css" rel="stylesheet"/>
+    <script type="text/javascript" src="../../js/lib/vue.min.js"></script>
+    <script type="text/javascript" src="../../js/px2rem.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="container_box">
+        <div class="nav flex_center">
+            <a class="btn_back flex_center" href="javascript:history.back();">
+                <img src="../../images/icon_back.png"/>
+            </a>
+            <p class="title">최인아책방</p>
+        </div>
+        <div class="section">
+            <div class="info_box flex_column_center">
+                <div class="text_content flex_column_center">
+                    <div class="content_top flex_center">
+                        <img class="logo_img" src="../../images/logo_shop03.png"/>
+                    </div>
+                    <p class="h3">
+                        블루멤버스 포인트로 <br/>
+                        혼자만의 시간을 즐겨보세요.
+                    </p>
+                    <div class="shop_info">
+                        <p>
+                            최인아책방 혼자의 서재<br/>
+                            주소 : 서울특별시 강남구 선릉로 521 3층<br/>
+                            연락처 : 02-555-7330<br/>
+                            이용시간 :  평일 11:00~21:00<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;주말 11:00~20:00
+                        </p>
+                    </div>
+                    <div class="shop_info shop_intro">
+                        <p class="h4">소개</p>
+                        <p>
+                            최인아책방은 오천여 권의 장서를 갖춘 중형 서점이자 강연, 모임,<br/>
+                            콘서트 등이 활발하게 이루어지는 복합 문화 공간. 책방 주인이<br/>
+                            선별한 좋은 책들이 주제별로 진열되어 있고 지인들이<br/>
+                            추천한 책 안에는 추천 이유를 진솔하게<br/>
+                            적은 북카드가 들어있어 자신에게 필요한<br/>
+                            책을 쉬이 선택할 수 있습니다.<br/>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn">
+                <a class="btn_gift" :href="brand_gift_url">
+                    <p>선물하기 > </p>
+                </a>
+            </div>
+        </div>
+        <a class="btn_info flex_center" href="javascript:void(0)" v-on:click="map_url">
+            <img class="icon_info" src="../../images/icon_map.png"/>
+            <p>지도 > </p>
+        </a>
+    </div><!-- end of .container_box -->
+</div>
+
+<script  type="text/javascript" src="../../js/lib/utils.js"></script>
+<script  type="text/javascript" src="js/wallet_submain_text.js"></script>
+</body>
+</html>

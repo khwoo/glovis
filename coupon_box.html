@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1, minimum-scale=0.5"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>brand</title>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="css/utils.css" rel="stylesheet"/>
+    <link href="css/coupon_box.css" rel="stylesheet"/>
+    <script type="text/javascript" src="js/lib/vue.min.js"></script>
+    <script type="text/javascript" src="js/px2rem.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div v-cloak class="container_box">
+        <div class="nav flex_center">
+            <!--<a class="btn_back flex_center" :href="wallet_url">-->
+            <a class="btn_back flex_center" :href="appLink">
+                <img src="images/icon_back.png"/>
+            </a>
+            <p class="title">보관함</p>
+        </div>
+
+        <div class="section">
+            <!-- 181002 -->
+            <!--<div class="header">-->
+                <!--<div class="header_top">-->
+                    <!--<ul class="header_menu flex_row_center">-->
+                        <!--<li class="flex_center" v-for="(item,index) in menuList" :class="{'on':index == menuIdx}">-->
+                            <!--<a class="flex_column_center" :data-id="index" href="javascript:void(0)" @click="box_menu">-->
+                                <!--<p class="menu_name">{{item.name}}</p>-->
+                                <!--<p class="icon_down" :class="{'on':index == menuIdx}">〉</p>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!-- my쿠폰 -->
+            <div v-if="0==menuIdx" class="product_list">
+                <ul class="product_list_ul">
+                    <li v-for="item in productList">
+                        <a class="flex_row_center" :href="item.productHref">
+                            <div class="product_img bg_cover" :style="{backgroundImage:'url('+ item.productImg +')'}">
+                            </div>
+                            <div class="product_info">
+                                <p class="name">{{item.brandName}}</p>
+                                <p class="product_name">{{item.productName}}</p>
+                                <p class="after_price">{{item.priceAfter}}</p>
+                            </div>
+                        </a>
+                        <img class="img_coupon_status"
+                             v-if="item.couponDisable"
+                             :src="[item.isPast ? 'images/icon_mini_past.png':'images/icon_mini_used.png']"/>
+                    </li>
+                    <div class="loading_more flex_center" :style="loading_show ? 'display:none;' : '' ">
+                        <div class="move_circle">
+                            <img class="icon_loading" src="images/icon_loading.png">
+                        </div>
+                        <p>Loading . . .</p>
+                    </div>
+                </ul>
+            </div>
+
+            <!-- 이용내역 -->
+            <div v-if="1==menuIdx" class="history_list flex_column_center">
+                <p class="history_tip">
+                    최근 3개월간의 이용내역만 확인 가능합니다.<br/>
+                    이전 내역 확인이 필요한 경우에는 고객센터로 연락주시기 바랍니다.
+                </p>
+                <ul>
+                    <li v-for="item in historyList">
+                        <a class="flex_between" :href="item.url">
+                            <div class="left">
+                                <p class="product_name">{{item.productName}}</p>
+                                <p class="use_date">{{item.useDate}}</p>
+                            </div>
+                            <div class="right">
+                                <p class="use_point" :class="[item.usePoint>0? 'back_point':'']">{{item.usePoint | formatPoint}}</p>
+                                <p class="use_status">{{item.status}}</p>
+                            </div>
+                        </a>
+                    </li>
+                    <div class="loading_more flex_center" :style="loading_show ? 'display:none;' : '' ">
+                        <div class="move_circle">
+                            <img class="icon_loading" src="images/icon_loading.png">
+                        </div>
+                        <p>Loading . . .</p>
+                    </div>
+                </ul>
+            </div>
+        </div>
+
+        <div is="popup" :popdata="popdata"></div>
+
+    </div><!-- end of container_box -->
+
+    <div :loading_type="loading_type" is="loading"></div>
+
+</div>
+<script type="text/javascript" src="http://61.35.35.203:45580/resource/js/glovisMall-api.js"></script>
+<script type="text/javascript" src="js/lib/utils.js"></script>
+<script type="text/javascript" src="js/lib/scroll.js"></script>
+<script type="text/javascript" src="js/coupon_box.js"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1, minimum-scale=0.5 ,initial-scale=1"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>Echoss Mall</title>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="css/wallet.css" rel="stylesheet"/>
+    <link href="css/utils.css" rel="stylesheet"/>
+    <link href="css/lib/swiper-4.1.0.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/lib/vue.min.js"></script>
+    <script type="text/javascript" src="js/px2rem.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <div v-cloak class="container_box">
+        <div class="nav flex_center">
+            <a class="btn_back flex_center" :href="wallet_url">
+                <img src="images/icon_back.png"/>
+            </a>
+            <p class="title">이달의 혜택</p>
+            <a class="btn_coupon_box flex_center" href="" :href="coupon_box">
+                <img src="images/icon_coupon_box.png"/>
+            </a>
+        </div>
+
+        <!-- 배너 START -->
+
+        <div v-if="bannerView_YN && bannerlist.length > 1" class="main_swiper swiper-container wallet_swiper top_banner bg_cover">
+
+            <div class="top_banner bg_cover swiper-wrapper" style="padding-top: initial;">
+                <div class="swiper-slide bg_cover"  v-for="item in bannerlist"
+                     :style="{backgroundImage:'url('+ item.bnrImg +')'}">
+                    <a :href="item.href"></a>
+                </div>
+            </div>
+
+            <div class="main_pagination swiper-pagination"></div>
+
+
+        </div>
+
+        <div v-if="bannerView_YN && bannerlist.length == 1" class=" wallet_swiper top_banner bg_cover">
+
+            <div class="top_banner bg_cover swiper-wrapper" style="padding-top: initial;">
+                <div class="swiper-slide bg_cover"  v-for="item in bannerlist"
+                     :style="{backgroundImage:'url('+ item.bnrImg +')'}">
+                    <a :href="item.href"></a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 배너 END -->
+
+        <ul class="section">
+
+            <li v-show="onReady" class="article article_1" :class="{show_motion:onReady}">
+                <!--<a class="bg_box" :href="brandUrllist[0].link_url">-->
+                    <!--<img :src="brandUrllist[0].image_url" class="img_shop_1"/>-->
+                <!--</a>-->
+                <a class="bg_box" @click="devRedirect">
+                    <img :src="brandUrllist[0].image_url" class="img_shop_1"/>
+                </a>
+            </li>
+
+            <li v-show="onReady" class="article article_2" :class="{show_motion:onReady}">
+                <a class="bg_box" :href="brandUrllist[1].link_url">
+                    <img :src="brandUrllist[1].image_url" class="img_shop_2">
+                </a>
+            </li>
+
+            <!--<li v-show="onReady" class="article article_3" :class="{show_motion:onReady}">-->
+                <!--<a class="bg_box" :href="brandUrllist[2].link_url">-->
+                    <!--<img :src="brandUrllist[2].image_url" class="img_shop_3">-->
+                <!--</a>-->
+            <!--</li>-->
+
+            <li v-show="onReady" class="article article_4" :class="{show_motion:onReady}">
+                <!--<a class="bg_box" :href="brandUrllist[3].link_url">-->
+                    <!--<img :src="brandUrllist[3].image_url" class="img_shop_4"/>-->
+                <!--</a>-->
+            </li>
+
+            <div class="article bottom">
+                <!--<p class="h2">주요 카테고리</p>-->
+            </div>
+            <div class="category">
+
+                <div style="font-size: 0.390625rem;
+                            font-weight: bold;
+                            color: #fff;
+                            margin: 0 0.64375rem;
+                            padding-bottom: 0.403125rem;
+                            border-bottom: 1px solid #fff;
+                        ">
+                    <!--주요 카테고리-->
+                    혜택
+                </div>
+
+                <ul style="white-space: nowrap; overflow-x: auto; overflow-y: hidden; display: inline-block; text-align: center; ">
+
+                    <li v-for="item in bizlist ">
+                        <a href="" :href="item.url">
+                            <img  :src="item.bizImg">
+                            <p v-text="item.categoryNm"></p>
+                        </a>
+                    </li>
+
+                </ul>
+                <div class="category_all">
+                    <a class="flex_center" :href="main_url">
+                        <p>전체 혜택 보기</p><p class="icon_right"> &nbsp;&nbsp;〉</p>
+                    </a>
+                </div>
+            </div>
+        </ul> <!-- end of .section -->
+        <footer>
+            <p class="content">
+                현대자동차는 통신판매중개자로서 블루멤버스 쿠폰서비스에서의 상품판매의 당사자가 아닙니다.
+                상품판매와 관련하여 상품 주문, 청약 철회, 배송, 교환, 반품 및 환불 등 일체의 사항은
+                (주)타미마케팅의 책임하에 운영되고, 현대 자동차는 이와 관련된 책임을 부담하지 않습니다.
+            </p>
+            <p class="content">
+                블루멤버스 이달의 혜택에서 판매되는 상품이나 서비스에 대한 모든 문의는 (주)타미마케팅
+                고객센터 (080-040-6000 / 평일 09:00 ~ 18:00)로 연락주시기 바랍니다.
+            </p>
+            <a href="javascript:void(0);" v-on:click="company_url" style=" display: inline-block;" >
+                <p>사업자 정보</p>
+            </a>
+            <a href="access_terms.html" style=" display: inline-block;" >
+                <p>이용약관</p>
+            </a>
+
+            <a href="privacy_policy.html" style=" display: inline-block;" >
+                <p>개인정보 처리방침</p>
+            </a>
+
+        </footer>
+
+        <div is="popup" :popdata="popdata"></div>
+        <div is="popupform" :popFormdata="popformdata"></div>
+
+    </div><!-- end of .container_box -->
+
+    <div :loading_type="loading_type" is="loading"></div>
+
+</div>
+
+<script type="text/javascript" src="https://developer.echoss.co.kr/sdk/echoss-lite-min.js"></script>
+<script type="text/javascript" src="http://61.35.35.203:45270/resource/js/pointMall-api.js"></script>
+
+<!--<script type="text/javascript" src="http://61.35.35.203:45270/resource/js/pointMall-api.js"></script>-->
+<script type="text/javascript" src="js/lib/utils.js"></script>
+<script type="text/javascript" src="js/wallet.js"></script>
+<script type="text/javascript" src="js/lib/swiper-4.1.0.min.js"></script>
+</body>
+</html>

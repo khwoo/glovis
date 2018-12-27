@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1, minimum-scale=0.5"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>Echoss Mall</title>
+    <link href="../../css/style.css" rel="stylesheet"/>
+    <link href="../../css/gift.css" rel="stylesheet"/>
+    <link href="../../css/utils.css" rel="stylesheet"/>
+    <script type="text/javascript" src="../../js/lib/vue.min.js"></script>
+    <script type="text/javascript" src="../../js/px2rem.js"></script>
+</head>
+<body>
+<div class="container">
+    <div v-cloak class="container_box">
+
+        <div class="nav flex_center">
+            <!--<a class="btn_back flex_center" :href="details_url">-->
+            <a class="btn_back flex_center" :href="appLink">
+                <img src="../../images/icon_back.png"/>
+            </a>
+            <p class="title" v-text="navTitle"></p>
+        </div>
+
+        <div class="section">
+            <form>
+                <ul>
+                    <li class="flex_column_center">
+                        <label for="gift_quantity">선물 받을 연락처 입력</label>
+                        <input v-model="gift_quantity_value" type="number" id="gift_quantity" placeholder="숫자만 입력"/>
+                    </li>
+                    <li class="flex_column_center">
+                        <label for="gift_to">보내는 사람</label>
+                        <input v-model="gift_to_value" id="gift_to" placeholder="성명 (최대 5자)" maxlength="5"/>
+                    </li>
+                </ul>
+            </form>
+            <div class="total_count total_quantity flex_between">
+                <p class="title">총 수량</p>
+                <p class="num"  v-text="totalQuantity_text"></p>
+            </div>
+            <div class="total_count flex_between">
+                <p class="title">총 결제 금액</p>
+                <p class="num">{{ totalPrice_text | formatMoney }}</p>
+            </div>
+        </div>
+        <div class="btn_box flex_between">
+            <a class="btn_left flex_center" href="javascript:history.back();">
+                <p>
+                    취소
+                </p>
+            </a>
+            <a class="btn_right flex_center" href="javascript:void(0)" @click="tap_buy">
+                <p>
+                    확인
+                </p>
+            </a>
+        </div>
+
+        <transition name="fade">
+            <div v-if="alertShow" class="modal alert">
+                <div class="bg_shadow flex_column_center">
+                    <div class="modal_box flex_column_center">
+
+                        <p class="title">
+                            구매확인
+                        </p>
+
+                        <!-- 구매 가능 -->
+                        <p class="alert_content" v-if="custMonthlyPsbCnt > 0 ">
+                            블루멤버스 포인트 {{totalPrice | formatMoney}}점이 차감됩니다.<br/>
+                            구매를 진행하시겠습니까?
+                            <br/>
+                            <span>
+                                <br/>포인트구매 이용 가능횟수 : <span v-text="custMonthlyPsbCnt"></span>회
+                                <br/>
+                                매월 포인트구매는 고객당 10회로 제한됩니다.(수량선택 무관)​
+                            </span>
+                        </p>
+
+
+                        <!-- 구매 불가 -->
+                        <p class="alert_content" v-if="custMonthlyPsbCnt <= 0 ">
+                            포인트 구매 이용횟수 제한으로 구매가 불가합니다.<br/>
+                            다음 달에 이용해 주세요.
+                            <br/>
+                            <span>
+                                <br/>포인트구매 이용 가능횟수 : <span v-text="custMonthlyPsbCnt"></span>회
+                                <br/>
+                                매월 포인트구매는 고객당 10회로 제한됩니다.(수량선택 무관)​
+                            </span>
+                        </p>
+
+
+                        <!-- 구매 가능 -->
+                        <div class="btn_group flex_between" v-if="custMonthlyPsbCnt > 0 ">
+                            <a class="btn_left flex_center" href="javascript:void(0)" @click="tap_cancel">
+                                <p>
+                                    취소
+                                </p>
+                            </a>
+                            <a class="flex_center" href="javascript:void(0)" @click="tap_buyConfirm">
+                                <p>
+                                    확인
+                                </p>
+                            </a>
+                        </div>
+
+
+                        <!-- 구매 불가 -->
+                        <div class="btn_group flex_between" v-if="custMonthlyPsbCnt <= 0 ">
+
+                            <a class="flex_center" href="javascript:void(0)" @click="tap_cancel" style="width: 100%;">
+                                <p>
+                                    확인
+                                </p>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </transition>
+        <transition name="fade">
+            <div v-if="alertOption" class="modal alert">
+                <div class="bg_shadow flex_column_center">
+                    <div class="modal_box flex_column_center">
+                        <p class="title">{{alertTitle}}</p>
+                        <p class="alert_content" :style="alertStyle" v-html="alertContent"></p>
+                        <div class="btn_group flex_between">
+                            <a class="btn_one flex_center" href="javascript:void(0)" @click="tap_buyOptionConfirm">
+                                <p>확인</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </div><!-- end of .container_box -->
+
+    <div :loading_type="loading_type" is="loading"></div>
+</div>
+<script src="../js/lib/echoss-tracker-1.0.js" type="text/javascript" ></script>
+<script type="text/javascript" src="http://61.35.35.203:45270/resource/js/pointMall-api.js"></script>
+<script type="text/javascript" src="../../js/lib/utils.js"></script>
+<script type="text/javascript" src="js/gift_1.js"></script>
+
+</body>
+</html>

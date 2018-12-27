@@ -1,0 +1,62 @@
+/* sass 변수 정의  *//************************************************************/
+@function px2rem($px) {
+  $rem: 64px;
+  @return ($px / $rem) + rem;
+}
+
+$theme_1_color: #FFB4B4; /* 태마 컨셉 컬러 */
+$theme_1_line: #303030; /* 태마 컨셉 라인 & 폰트 컬러 */
+$dark: #303030;/* 태마 일반 dark 폰트 컬러 */
+$light: #fff; /* light 폰트 컬러 */
+
+/* swiper */
+.swiper-container.main_swiper {
+  width:100%;
+  height: px2rem(270px);
+  .swiper-slide {
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+.swiper-container {
+  .main-pagination.swiper-pagination-bullets{
+    bottom:px2rem(6px);
+  }
+  .recommend_pagination.swiper-pagination-bullets{
+    bottom:auto;
+    top:px2rem(10px);
+    text-align: right;
+    .swiper-pagination-bullet{
+      position:relative;
+      right:0;
+      box-sizing: border-box;
+      border:1px solid rgba(0,0,0,.2);
+    }
+  }
+  .swiper-pagination-bullet{
+    width:6px;
+    height:6px;
+    background-color: #fff;
+    opacity: 1;
+
+    &.swiper-pagination-bullet-active{
+      background-color: #303030;
+    }
+  }
+}
+
+.swiper-container.recommend_swiper {
+  width:px2rem(584px);
+  margin-top:px2rem(-82px);
+  padding-top:px2rem(103px);
+  .swiper-slide {
+    a {
+      width: px2rem(248px);
+      padding: px2rem(18px);
+      background-color: #fff;
+    }
+  }
+}

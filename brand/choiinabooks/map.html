@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1, minimum-scale=0.5"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>brand</title>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="../../css/utils.css" rel="stylesheet" />
+    <script type="text/javascript" src="../../js/lib/vue.min.js"></script>
+    <script type="text/javascript" src="../../js/px2rem.js"></script>
+    <style>
+
+        .nav {
+            position: inherit;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div v-cloak class="container_box">
+        <div class="nav flex_center">
+            <!--<a class="btn_back flex_center" :href="wallet_url">-->
+            <a class="btn_back flex_center" :href="appLink">
+                <img src="../../images/icon_back.png"/>
+            </a>
+            <p class="title">{{brandName}}</p>
+        </div>
+    </div><!-- end of container_box -->
+
+    <div id="map" style="height:100%;"></div>
+
+</div>
+<script type="text/javascript" src="../../js/lib/utils.js" ></script>
+<script type="text/javascript" src="js/map.js"></script>
+<script>
+    function initMap() {
+
+        var uluru = {lat: 37.506027, lng: 127.047902 };
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 16,
+            center: uluru
+        });
+        var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+        });
+    }
+
+    var _height = window.innerHeight;
+    var _nav = document.querySelector('.nav').offsetHeight;
+
+    map.style.height = _height - _nav + 'px';
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnvBWkeTxqaFtkdf3pWvCvBWF0hz5TXlk&callback=initMap"></script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1, minimum-scale=0.5"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>Echoss Mall</title>
+    <link href="../../css/style.css" rel="stylesheet"/>
+    <link href="../../css/details.css" rel="stylesheet"/>
+    <link href="../../css/utils.css" rel="stylesheet"/>
+    <script type="text/javascript" src="../../js/lib/vue.min.js"></script>
+    <script type="text/javascript" src="../../js/px2rem.js"></script>
+</head>
+<body>
+<div class="container">
+    <div v-cloak class="container_box">
+
+        <div class="nav flex_center">
+            <!--<a class="btn_back flex_center" :href="main_url">-->
+            <a class="btn_back flex_center" :href="appLink">
+                <img src="../../images/icon_back.png"/>
+            </a>
+            <p class="title" v-text="navTitle">
+
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="article_top flex_column_center">
+                <div class="product_img bg_cover" :style="{backgroundImage:'url('+ productImg +')'}"></div>
+                <div class="product_info">
+                    <p class="name brand_name" v-text="brandName"></p>
+                    <p class="name product_name" v-text="productName"></p>
+                    <div class="price_line flex_between">
+                        <p class="product_notice" v-text="productNotice"></p>
+
+                        <p class="after_price">{{priceAfter | formatMoney}}</p>
+
+                    </div>
+                </div>
+            </div>
+            <!-- menu -->
+            <div class="article_bottom">
+                <ul class="category_menu flex_center">
+                    <li v-for="(item,index) in subMenuList" :class="{'on':index==subMenuIdx}" @click="subMenuIdx=index">
+                        <a class="flex_center" href="javascript:void(0)">
+                            {{item.name}}
+                        </a>
+                    </li>
+                </ul>
+                <ul class="content">
+                    <li v-if="subMenuIdx==index" v-for="(item,index) in subContentList">
+                        <!--<p >{{ item.contentText | replace_br  }}</p>-->
+                        <p v-html="item.contentText"></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 구매 선물 -->
+        <div class="btn_container">
+            <a class="slide_btn_box flex_center" href="javascript:void(0);" @click="btnOptionShow=!btnOptionShow">
+            <img class="icon_btn_slide" src="../../images/icon_ap_top.png"/>
+            <img class="icon_up" src="../../images/icon_up.png" :class="{icon_down:btnOptionShow}"/>
+
+            </a>
+            <!-- 상품 개수 선택 -->
+            <div v-if="btnOptionShow" class="btn_option">
+                <div class="quantity_box flex_row_center">
+                    <a class="border_right flex_center" href="javascript:void(0)" @click="tap_minus">﹣</a>
+                    <p class="border_right flex_center">{{productQuantity}}</p>
+                    <a class="flex_center" href="javascript:void(0)" @click="tap_plus">﹢</a>
+                </div>
+                <p v-if="goodsQttGbn == '2' " class="inventory">(잔여수량 : {{goodsCnt | formatCount }})</p>
+                <p class="total_price">총 {{totalPrice | formatMoney}}</p>
+            </div>
+
+            <!-- 구매 선물 -->
+            <div class="btn_box flex_between">
+
+                <!-- 구매 -->
+                    <div class="btn_item flex_center">
+                        <a class="flex_center" href="javascript:void(0)" @click="tap_buy">
+                            <p class="flex_center">
+                                구매하기
+                            </p>
+                        </a>
+                    </div>
+
+                <!-- 선물 -->
+                    <div v-if="prstPsbYn == 'Y' " class="btn_item flex_center">
+                        <a class="flex_center" href="javascript:void(0)"  @click="tap_gift">
+                            <p class="flex_center">
+                                선물하기
+                            </p>
+                        </a>
+                    </div>
+            </div>
+        </div>
+
+
+        <!-- 구매 확인 -->
+        <transition name="fade">
+            <div v-if="alertShow" class="modal alert">
+                <div class="bg_shadow flex_column_center">
+                    <div class="modal_box flex_column_center">
+                        <p class="title">구매확인</p>
+
+                        <!-- 구매 가능 -->
+                        <p class="alert_content" v-if="custMonthlyPsbCnt > 0 ">
+                            블루멤버스 포인트 {{totalPrice | formatMoney}}점이
+                            차감됩니다.<br/>
+                            구매를 진행하시겠습니까?
+                            <br/>
+                            <span>
+                                <br/>포인트구매 이용 가능횟수 : <span v-text="custMonthlyPsbCnt"></span>회
+                                <br/>
+                                매월 포인트구매는 고객당 10회로 제한됩니다.(수량선택 무관)​
+                            </span>
+                        </p>
+
+                        <!-- 구매 불가 -->
+                        <p class="alert_content" v-if="custMonthlyPsbCnt <= 0 ">
+                            포인트 구매 이용횟수 제한으로 구매가 불가합니다.<br/>
+                            다음 달에 이용해 주세요.
+                            <br/>
+                            <span>
+                                <br/>포인트구매 이용 가능횟수 : <span v-text="custMonthlyPsbCnt"></span>회
+                                <br/>
+                                매월 포인트구매는 고객당 10회로 제한됩니다.(수량선택 무관)
+                            </span>
+                        </p>
+
+
+                        <!-- 구매 가능 -->
+                        <div class="btn_group flex_between" v-if="custMonthlyPsbCnt > 0 " >
+                            <a class="btn_left flex_center" href="javascript:void(0)" @click="tap_cancel">
+                                <p>취소</p>
+                            </a>
+                            <a class="flex_center" href="javascript:void(0)" @click="tap_buyConfirm">
+                                <p>확인</p>
+                            </a>
+                        </div>
+
+                        <!-- 구매 불가 -->
+                        <div class="btn_group flex_between" v-if="custMonthlyPsbCnt <= 0 " >
+                            <a class="flex_center" href="javascript:void(0)" @click="tap_cancel" style="width: 100%;">
+                                <p>확인</p>
+                            </a>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </transition>
+
+        <transition name="fade">
+            <div v-if="alertOption" class="modal alert">
+                <div class="bg_shadow flex_column_center">
+                    <div class="modal_box flex_column_center">
+                        <p class="title">{{alertTitle}}</p>
+                        <p class="alert_content" v-html="alertContent">{{alertContent}}</p>
+                        <div class="btn_group flex_between">
+                            <a class="btn_one flex_center" href="javascript:void(0)" @click="tap_buyOptionConfirm">
+                                <p>확인</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+
+        <div is="popup" :popdata="popdata"></div>
+
+    </div><!-- end of .container_box -->
+
+    <div :loading_type="loading_type" is="loading"></div>
+</div>
+<script src="../js/lib/echoss-tracker-1.0.js" type="text/javascript" ></script>
+<script type="text/javascript" src="http://61.35.35.203:45270/resource/js/pointMall-api.js"></script>
+<script type="text/javascript" src="../../js/lib/utils.js"></script>
+<script type="text/javascript" src="js/details.js"></script>
+
+</body>
+</html>

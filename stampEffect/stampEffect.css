@@ -1,0 +1,103 @@
+@charset "utf-8";
+
+/* General styles for the modal */
+
+.stamp-modal {
+	position: fixed;
+	top: 85%;
+	left: 75%;
+	width: 100%;
+	/*max-width: 630px;*/
+	display:block;
+	/*min-width: 320px;*/
+	height: 100%;
+	z-index: 4000;
+	visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+/* 
+	background-size:94px 86px;
+	border-radius:12px;
+ */
+}
+
+.stamp-modal img{
+	position: absolute;
+	width : 50%;
+}
+
+.rotateImgSlow {
+	-webkit-animation: rotate 10s linear infinite 0s;
+	-moz-animation: rotate 10s linear infinite 0s;
+	-ms-animation: rotate 10s linear infinite 0s;
+	animation: rotate 10s linear infinite 0s;
+}
+
+.rotateImgFast {
+	-webkit-animation: rotate 2s linear infinite 0s;
+	-moz-animation: rotate 2s linear infinite 0s;
+	-ms-animation: rotate 2s linear infinite 0s;
+	animation: rotate 2s linear infinite 0s;
+}
+
+.rotateReverseImgFast {
+	-webkit-animation: rotate_reverse 2s linear infinite 0s;
+	-moz-animation: rotate_reverse 2s linear infinite 0s;
+	-ms-animation: rotate_reverse 2s linear infinite 0s;
+	animation: rotate_reverse 2s linear infinite 0s;
+}
+
+.scaleUpImg {
+	-webkit-animation: scaleUp 1s linear infinite 0s;
+	-moz-animation: scaleUp 1s linear infinite 0s;
+	-ms-animation: scaleUp 1s linear infinite 0s;
+	animation: scaleUp 1s linear infinite 0s;
+}
+
+/* ANIMATION - ROTATE */
+@-webkit-keyframes rotate {
+ from { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); }
+}
+@-moz-keyframes rotate {
+ from { -moz-transform: rotate(0deg); }
+  to { -moz-transform: rotate(360deg); }
+}
+@-ms-keyframes rotate {
+ from { -ms-transform: rotate(0deg); }
+  to { -ms-transform: rotate(360deg); }
+}
+/* ANIMATION - ROTATE REVERSE */
+@-webkit-keyframes rotate_reverse {
+ from { -webkit-transform: rotate(360deg); }
+  to { -webkit-transform: rotate(0deg); }
+}
+@-moz-keyframes rotate_reverse {
+ from { -moz-transform: rotate(360deg); }
+  to { -moz-transform: rotate(0deg); }
+}
+@-ms-keyframes rotate_reverse {
+ from { -ms-transform: rotate(360deg); }
+  to { -ms-transform: rotate(0deg); }
+}
+/* ANIMATION - SCALE UP */
+@-webkit-keyframes scaleUp {
+ from { -webkit-transform: scale(0.1); opacity: 1; }
+  to { -webkit-transform: scale(2.0); opacity: 0; }
+}
+@-moz-keyframes scaleUp {
+ from { -moz-transform: scale(0.1); opacity: 1; }
+  to { -moz-transform: scale(2.0); opacity: 0; }
+}
+@-ms-keyframes scaleUp {
+ from { -ms-transform: scale(0.1); opacity: 1; }
+  to { -ms-transform: scale(2.0); opacity: 0; }
+}
+.effect-show {
+	visibility: visible;
+}

@@ -1,0 +1,89 @@
+/* sass 변수 정의  *//************************************************************/
+@function px2rem($px) {
+  $rem: 64px;
+  @return ($px / $rem) + rem;
+}
+/* 컬러 컨셉 이분분에서 수정 */
+$theme_1_color: #00498C; /* 태마 컨셉 컬러 */
+$theme_btn_border_color: rgba(255,255,255,.36); /* 태마 컨셉 컬러의 어두운 컬러로 버튼 테두리 컬러*/
+$theme_1_line: #fff; /* 태마 컨셉 라인 & 폰트 컬러 */
+$subCategory_color: #E7F3F7; /* sub category off 일때 배경 컬러 */
+$dark: #303030; /* 태마 일반 dark 폰트 컬러 */
+$light: #fff; /* light 폰트 컬러 */
+
+
+body {
+  background-color: #fff;
+}
+.section {
+  padding-top:px2rem(126px)
+}
+form {
+  padding: 0 px2rem(25px);
+  border-bottom: px2rem(10px) solid #F4F4F4;
+  ul {
+    li {
+      margin-bottom:px2rem(60px);
+      label {
+        width:100%;
+        display: block;
+        margin-bottom: px2rem(28px);
+        font-size: px2rem(30px);
+      }
+      input {
+        width:px2rem(550px);
+        height:px2rem(78px);
+        padding:0 px2rem(20px);
+        border: px2rem(1px) solid #B2B2B2;
+        font-size: px2rem(26px);
+      }
+      input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+        color: #AAAAAA;
+      }
+    }
+  }
+}
+.total_count {
+
+  p{
+    padding:px2rem(40px) px2rem(25px) px2rem(20px);
+    font-size: px2rem(30px);
+  }
+  .title {
+    color:#666666;
+  }
+
+  &.total_quantity {
+    border-bottom: px2rem(1px) solid #EFEFEF;
+  }
+}
+
+.btn_box {
+  position: fixed;
+  bottom:px2rem(25px);
+  left:px2rem(25px);
+  width:px2rem(590px);
+  margin:0 auto;
+  a {
+    width:px2rem(287px);
+    height:px2rem(80px);
+    &.btn_left {
+      box-sizing: border-box;
+      border: px2rem(1px) solid $theme_1_color;
+      p {
+        color: $theme_1_color;
+      }
+    }
+    &.btn_right {
+      background-color: $theme_1_color;
+      p {
+        color: $theme_1_line;
+      }
+    }
+  }
+  p {
+    font-weight: bold;
+    font-size: px2rem(28px);
+  }
+
+}

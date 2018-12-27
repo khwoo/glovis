@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1, minimum-scale=0.5"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>Echoss Mall</title>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="css/wallet_sub_main.css" rel="stylesheet"/>
+    <script type="text/javascript" src="../../js/lib/vue.min.js"></script>
+    <script type="text/javascript" src="../../js/px2rem.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="container_box">
+        <div class="nav flex_center">
+            <a class="btn_back flex_center" :href="appLink">
+                <img src="../../images/icon_back.png"/>
+            </a>
+            <p class="title">플라자CC 용인</p>
+        </div>
+        <div class="section">
+            <div class="info_box flex_column_center">
+                <div class="text_content flex_column_center">
+                    <div class="content_top flex_center">
+                        <img class="logo_img" src="../../images/logo_shop04.png"/>
+                    </div>
+                    <p class="h3">
+                        프로골퍼에게도 매력적인,<br/>
+                        수도권에 인접한 플라자 CC용인에서<br/>
+                        블루멤버스 포인트 5만원 쿠폰 혜택을 받아보세요.<br/>
+                    </p>
+                    <div class="shop_info">
+                        <p>
+                            플라자CC 용인<br/>
+                            주소 : 경기도 용인시 처인구 남사면 봉무로153번길 79<br/>
+                            연락처 : <a href="tel:031-323-3200">031-323-3200</a><br/>
+                            홈페이지 : <a href="toClient:doBrowser##http://www.plazacc.co.kr">http://www.plazacc.co.kr</a>
+                        </p>
+                    </div>
+                    <div class="shop_info shop_intro">
+                        <p class="h4">소개</p>
+                        <p class="h7">서울에서 가장 가까운 거리, 여유있는 36홀의 골프코스</p>
+                        <p>
+                            가벼운 가족나들이와 비즈니스에 적합한 리조트로<br/> 골프장은 넓은
+                            페어웨이,&nbsp;&nbsp;천연지세를 그대로 활용한 빼어난 코스설계가 골퍼의 마음을 사로잡습니다.<br/>
+                            수도권과 인접해 있으며 오산 및 기흥 IC에서<br/>
+                            가깝다는 장점이 있으며 골프 코스가 차별화 되어 있어 선호에 따라 선택의 폭이 넓습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn">
+                <a class="btn_gift" :href="brand_gift_url">
+                    <p>포인트 구매/선물하기 > </p>
+                </a>
+            </div>
+        </div>
+        <a class="btn_info flex_center" href="javascript:void(0)" v-on:click="map_url">
+            <img class="icon_info" src="../../images/icon_map.png"/>
+            <p>지도 > </p>
+        </a>
+    </div><!-- end of .container_box -->
+</div>
+<script type="text/javascript" src="http://61.35.35.203:45270/resource/js/pointMall-api.js"></script>
+<script type="text/javascript" src="../../js/lib/utils.js"></script>
+<script type="text/javascript" src="js/wallet_submain_4.js"></script>
+</body>
+</html>

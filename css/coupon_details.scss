@@ -1,0 +1,154 @@
+/* sass 변수 정의  *//************************************************************/
+@function px2rem($px) {
+  $rem: 64px;
+  @return ($px / $rem) + rem;
+}
+
+$theme_1_color: #00498C; /* 태마 컨셉 컬러 */
+$theme_btn_border_color: rgba(255,255,255,.36); /* 태마 컨셉 컬러의 어두운 컬러로 버튼 테두리 컬러*/
+$theme_1_line: #fff; /* 태마 컨셉 라인 & 폰트 컬러 */
+$dark: #303030; /* 태마 일반 dark 폰트 컬러 */
+$light: #fff; /* light 폰트 컬러 */
+
+$details_select_option_bg: #303030; /* 상품 상세 하단 셀렉 박스 선택 될때 배경 컬러 */
+$details_select_option_fc: #FFB4B4; /* 상품 상세 하단 셀렉 박스 선택 될때 폰트 컬러 */
+
+.section {
+  position: relative;
+}
+
+.coupon_product_img {
+  width:100%;
+  height:px2rem(320px);
+}
+
+.method_use {
+  width:100%;
+  margin:px2rem(20px) 0;
+  background-color: #fff;
+  .method_stamp {
+    padding:px2rem(10px) px2rem(30px) px2rem(15px);
+    img {
+      width:px2rem(100px);
+      margin-right: px2rem(24px);
+    }
+    p {
+      line-height:px2rem(26px);
+      font-size: px2rem(24px);
+      color:#587377;
+    }
+  }
+  .method_bar_code {
+    padding:px2rem(18px) 0;
+    img {
+      width:px2rem(493px);
+    }
+  }
+}
+
+.coupon_info {
+  width: 100%;
+  padding: px2rem(32px) px2rem(30px);
+  background-color:#fff;
+  .brand_name {
+    font-size: px2rem(22px);
+    margin-bottom: px2rem(23px);
+  }
+  .product_name {
+    width: px2rem(300px);
+    line-height:px2rem(30px);
+    font-size: px2rem(26px);
+    margin-bottom: px2rem(32px);
+  }
+  .use_date {
+    //font-weight: lighter;
+    font-size: px2rem(22px);
+    margin-bottom: px2rem(27px);
+  }
+  .coupon_number {
+    width: px2rem(580px);
+    height: px2rem(55px);
+    border: px2rem(1px) solid #707070;
+    background-color: #FBDA33;
+    font-weight: bold;
+    font-size: px2rem(26px);
+  }
+
+}
+
+
+.btn_box {
+  padding: px2rem(30px);
+  a {
+    width:100%;
+    height:px2rem(80px);
+    border: px2rem(1px) solid $theme_1_color;
+    p {
+      font-weight: bold;
+      font-size: px2rem(27px);
+      color: $theme_1_color;
+    }
+  }
+}
+
+.coupon_notice {
+  width:100%;
+  margin-top: px2rem(20px);
+  background-color: #fff;
+   ul {
+     padding: px2rem(20px) px2rem(20px) px2rem(10px);
+      li {
+        padding-bottom: px2rem(50px);
+      }
+
+     .title {
+       display: inline-block;
+       padding-right: px2rem(68px);
+       background-color: #fff;
+       font-weight: bold;
+       font-size: px2rem(26px);
+     }
+
+     .content {
+       margin-top: px2rem(-24px);
+       padding-top: px2rem(34px);
+       line-height:px2rem(27px);
+       //font-weight: lighter;
+       font-size: px2rem(22px);
+       border-top: px2rem(1px) solid #C8D8DB;
+     }
+   }
+}
+
+.disable_box {
+  position:absolute;
+  top:px2rem(203px);
+  width:100%;
+  .disable_mark {
+    position:absolute;
+    top:0;
+    width: px2rem(318px);
+  }
+
+  ul {
+    position:relative;
+    flex-direction: column;
+    width:px2rem(318px);
+    height:px2rem(270px);
+    padding-top: px2rem(48px);
+
+    li {
+        &:last-child {
+          margin-top:px2rem(22px);
+        }
+      p {
+        line-height: px2rem(30px);
+        font-size: px2rem(22px);
+        color: #fff;
+      }
+    }
+  }
+  .content {
+    //font-weight: lighter;
+  }
+}

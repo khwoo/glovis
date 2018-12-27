@@ -1,0 +1,58 @@
+ol, ul, li {list-style:none;} img, fieldset {border:0 none;}
+input[type=text], input[type=password], input[type=submit], input[type=search], textarea {-webkit-appearance:none;outline: 0;border:0;}
+input:focus, select:focus {outline:0 none;}
+input:focus::-webkit-input-placeholder,textarea:focus::-webkit-input-placeholder {/* WebKit browsers */color:transparent;}
+input:focus:-moz-placeholder,textarea:focus:-moz-placeholder {/* Mozilla Firefox 4 to 18 */color:transparent;}
+input:focus::-moz-placeholder,textarea:focus::-moz-placeholder {/* Mozilla Firefox 19+ */color:transparent;}
+input:focus:-ms-input-placeholder,textarea:focus:-ms-input-placeholder {/* Internet Explorer 10+ */color:transparent;}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"]{
+  -moz-appearance: textfield;
+}
+button {border:0 none; background:transparent; cursor:pointer;}
+table caption {width:0; height:0; visibility:hidden; font-size:0; line-height:0;}
+table {border-collapse:collapse; border-spacing:0;}
+header, footer, section, article, aside, nav, hgroup, details, menu, figure, figcaption {display:block;}
+a {text-decoration:none;color:#000;}
+body {
+  background:transparent;line-height:1.15;letter-spacing:-0.3px;
+  font-family:Helvetica,AppleSDGothicNeo,Arial,sans-serif;
+  -webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;word-break:break-all;/*-webkit-user-select:none;*/
+}
+*{
+  margin:0;
+  padding:0;
+}
+
+/* sass 변수 정의  *//************************************************************/
+@function px2rem($px) {
+  $rem: 64px;
+  @return ($px / $rem) + rem;
+}
+
+.flex_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex_column_center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn_confirm {
+  position: fixed;
+  left:0;
+  bottom: 0;
+  width: 100%;
+  height: px2rem(86px);
+  background-color: #00498C;
+  font-weight: bold;
+  font-size: px2rem(34px);
+  color: #fff;
+}
