@@ -1,0 +1,57 @@
+
+/** 브랜드 */
+
+.brand_menu{
+    margin: .6rem 0 0 0;
+    display: flex;
+}
+
+.brand_menu_search{
+    margin: 0 .5rem 0 .5rem;
+    border: 1px solid #D6D6D6;
+    background-color: #fff;
+    position: relative;
+    width: 6rem;
+}
+
+.brand_menu_search_input{
+    width: 4rem;
+    height: 1rem;
+    display: block;
+    padding: 0 .4rem;
+}
+
+.brand_menu_search_btn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1.2rem;
+    height: 1rem;
+    background-image: url(../images/icon_search.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: .6rem;
+}
+
+.brand_search_select{
+    width: 2.5rem;
+    border: 1px solid #D6D6D6;
+    height: 1rem;
+
+    margin: 0 .5rem 0 0;
+}
+
+.brand_search_select > select{
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0 0 0 .3rem;
+    color: #083F88;
+    font-weight: bold;
+
+    background-image: url(../images/icon_select.png);
+    background-repeat: no-repeat;
+    background-position: 90% 50%;
+    background-size: .4rem;
+    background-color: #fff;
+}

@@ -17,22 +17,26 @@
 <div class="container">
     <div v-cloak class="container_box">
         <div class="nav flex_center">
-            <!--<a class="btn_back flex_center" href="" :href="wallet_url">-->
                 <a class="btn_back flex_center" :href="appLink">
                 <img src="images/icon_back.png"/>
             </a>
-            <!--<p class="title">오늘의 혜택</p>-->
-            <p class="title" style="height: 100%;align-items: center;display: flex;">
-                <img src="images/glovis_logo.jpg" style="width: 5rem;height: auto;" />
-            </p>
+            <template v-if="brandMenuNm">
+                <p class="title" v-text="brandMenuNm"></p>
+            </template>
+            <template v-else>
+                <p class="title" style="height: 100%;align-items: center;display: flex;">
+                    <img src="images/glovis_logo.jpg" style="width: 5rem;height: auto;" />
+                </p>
+            </template>
             <a class="btn_coupon_box flex_center" href="" :href="coupon_box">
                 <img src="images/icon_coupon_box.png"/>
             </a>
         </div>
 
         <div class="section">
-            <div class="header">
-                <div class="header_top" >
+            <!--<div :class="!brandProductSearchShow ? 'header header_show' : 'header header_hide'">-->
+            <div v-if="!brandProductSearchShow" class="header">
+                <div class="header_top">
                     <ul class="header_menu flex_row_center">
                         <li class="flex_center" v-for="(item, index) in menuList" :class="{'on':item.id == menuIdx}">
                             <a class="flex_column_center" href="javascript:void(0)" :data-id="item.id" @click.stop="selectgroup">
@@ -94,149 +98,84 @@
             </div>
 
             <!-- *  인기 카테고리 2018-12-19 추가  -->
-            <div v-if="rmd_categoryShow" class="rmd_category" >
-                <div class="rmd_menu_title">
-                    인기 카테고리
-                </div>
-                <div class="rmd_category_list">
-                    <div>
-                        <img src="images/test_category_images/1.jpg">
+
+            <template v-if="rmd_categoryList.length > 0 ">
+                <div v-if="rmd_categoryShow" class="rmd_category" >
+                    <div class="rmd_menu_title">
+                        인기 카테고리
                     </div>
-                    <div>
+                    <div class="rmd_category_list">
                         <div>
-                            <div>
-                                <div>
-                                    <img src="images/test_category_images/2.png">
-                                </div>
-                                <div>생활편의</div>
-                            </div>
+                            <img src="images/test_category_images/1.jpg">
                         </div>
-
                         <div>
-                            <div>
+                            <template v-for="item in rmd_categoryList">
+                            <div @click="rmdCategoryClick" :data-id="item.ctgrCd">
                                 <div>
-                                    <img src="images/test_category_images/3.png">
+                                    <div>
+                                        <img :src="item.ctgrImg">
+                                    </div>
+                                    <div v-text="item.ctgrNm"></div>
                                 </div>
-                                <div>문화공연</div>
                             </div>
-                        </div>
-
-                        <div>
-                            <div>
-                                <div>
-                                    <img src="images/test_category_images/4.png">
-                                </div>
-                                <div>외식</div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div>
-                                <div>
-                                    <img src="images/test_category_images/5.png">
-                                </div>
-                                <div>카페/디저트</div>
-                            </div>
+                            </template>
                         </div>
                     </div>
                 </div>
-            </div>
+            </template>
 
             <!-- *  인기 브랜드 2018-12-19 추가   -->
-            <div v-if="rmd_brandShow" class="rmd_brand" >
-                <div class="rmd_menu_title">
-                    인기 브랜드
-                </div>
-                <div class="rmd_brand_list">
-                    <div>
-                        <div>
-                            <img src="images/test_brand_images/1.png" />
-                        </div>
+            <template v-if="rmd_brandList.length > 0 ">
+                <div v-if="rmd_brandShow" class="rmd_brand" >
+                    <div class="rmd_menu_title">
+                        인기 브랜드
                     </div>
-                    <div>
-                        <div>
-                            <img src="images/test_brand_images/2.png" />
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <img src="images/test_brand_images/3.png" />
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <img src="images/test_brand_images/4.png" />
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <img src="images/test_brand_images/1.png" />
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <img src="images/test_brand_images/5.png" />
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <img src="images/test_brand_images/2.png" />
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <img src="images/test_brand_images/4.png" />
-                        </div>
+                    <div class="rmd_brand_list">
+                        <template v-for="item in rmd_brandList">
+                            <div @click="brandClick" :data-id="item.ctgrCd" :data-name="item.ctgrNm" data-type="main">
+                                <div>
+                                    <img :src="item.ctgrImg" />
+                                </div>
+                            </div>
+                        </template>
                     </div>
                 </div>
-            </div>
+            </template>
 
             <!-- * 브랜드 정보 -->
-            <div v-if="brand_infoShow" class="rmd_brand">
-                <div class="rmd_menu_title">
-                    브랜드 리시트
+            <div v-if="brand_infoShow && !brandProductSearchShow" class="brand_menu">
+                <div class="brand_menu_search">
+                    <input ref="searchBrandNm" class="brand_menu_search_input" type="text" value="" placeholder="브랜드명으로 검색하세요" />
+                    <div v-on:click="brandSearch" class="brand_menu_search_btn"></div>
                 </div>
-                <div class="rmd_brand_list">
-                    <div>
-                        <div>
-                            <img src="images/test_brand_images/1.png" />
+                <div class="brand_list">
+                    <template v-for="item in brandMenuList">
+                        <div @click="brandClick" :data-id="item.ctgrCd" :data-name="item.ctgrNm" data-type="brand">
+                            <div>
+                                <img :src="item.ctgrImg" />
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <div>
-                            <img src="images/test_brand_images/2.png" />
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <img src="images/test_brand_images/3.png" />
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <img src="images/test_brand_images/4.png" />
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <img src="images/test_brand_images/1.png" />
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <img src="images/test_brand_images/5.png" />
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <img src="images/test_brand_images/2.png" />
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <img src="images/test_brand_images/4.png" />
-                        </div>
-                    </div>
+                    </template>
+                </div>
+                <!--<div class="brand_more_view">-->
+                    <!--<div class="brand_more">-->
+                        <!--더보기-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+
+            <!-- 상품 검색 -->
+            <div v-if="brandProductSearchShow" class="productSearch_menu">
+                <div class="productSearch_menu_search">
+                    <input ref="searchProductNm" class="productSearch_menu_search_input" type="text" value="" placeholder="상품명으로 검색하세요." />
+                    <div v-on:click="brandproductSearch" class="brand_menu_search_btn"></div>
+                </div>
+                <div class="brand_search_select">
+                    <select ref="searchProductOrder" >
+                        <option value="R">추천순</option>
+                        <option value="P">가격순</option>
+                        <option value="S">판매순</option>
+                    </select>
                 </div>
             </div>
 
@@ -310,7 +249,7 @@
     <div :loading_type="loading_type" is="loading"></div>
 </div>
 <script type="text/javascript" src="js/lib/swiper-4.1.0.min.js"></script>
-<script type="text/javascript" src="http://61.35.35.203:45580/resource/js/glovisMall-api.js"></script>
+<script type="text/javascript" src="http://13.124.30.75:45580/resource/js/glovisMall-api.js"></script>
 <script type="text/javascript" src="js/lib/utils.js"></script>
 <script type="text/javascript" src="js/lib/scroll.js"></script>
 <script type="text/javascript" src="js/main.js"></script>

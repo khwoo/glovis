@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1, minimum-scale=0.5"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <meta HTTP-EQUIV="Cache-Control" CONTENT="no-store,must-revalidate">
+    <meta HTTP-EQUIV="expires" CONTENT="Wed,26 Feb 1997 08:21:57 GMT">
+    <meta HTTP-EQUIV="expires" CONTENT="0">
+    <title>brand</title>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="css/utils.css" rel="stylesheet" />
+    <link href="css/brand_gift.css" rel="stylesheet"/>
+    <script type="text/javascript" src="js/lib/vue.min.js"></script>
+    <script type="text/javascript" src="js/px2rem.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div v-cloak class="container_box">
+        <div class="nav flex_center">
+            <!--<a class="btn_back flex_center" :href="wallet_url">-->
+            <a class="btn_back flex_center" :href="appLink">
+                <img src="images/icon_back.png"/>
+            </a>
+            <p class="title">{{brandName}}</p>
+            <a class="btn_coupon_box flex_center" href="" :href="coupon_box">
+                <img src="images/icon_coupon_box.png"/>
+            </a>
+        </div>
+
+        <div class="section">
+
+            <!-- * 브랜드 정보 -->
+            <div v-if="brand_infoShow" class="productSearch_menu">
+                <div class="productSearch_menu_search">
+                    <input class="productSearch_menu_search_input" type="text" value="" placeholder="상품명으로 검색하세요." />
+                    <div v-on:click="brandSearch" class="productSearch_menu_search_btn"></div>
+                </div>
+                <div class="brand_search_select">
+                    <select id="product_order">
+                        <option>
+                            가격순
+                        </option>
+                        <option>
+                            가격순1
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="product_list">
+                <ul class="product_list_ul">
+                    <li v-for="item in productList">
+                        <a class="flex_row_center" :href="item.productHref">
+                            <div class="product_img bg_cover" :style="{backgroundImage:'url('+ item.productImg +')'}">
+                            </div>
+                            <div class="product_info">
+                                <p class="name">{{item.brandName}}</p>
+                                <p class="product_name">{{item.productName}}</p>
+                                <p v-if="item.goodsSalGbn == '1'" class="after_price">{{item.priceAfter | formatPoint}}</p>
+                                <p v-if="item.goodsQttGbn == '2' " class="inventory">
+                                    (잔여수량 : {{item.goodsCnt}})
+                                </p>
+                            </div>
+                            <img v-if="item.goodsSalGbn == '1' " class="mark" src="images/icon_mark_type02.png" />
+                            <img v-if="item.goodsSalGbn == '2' " class="mark" src="images/tip_01.png" />
+                        </a>
+                    </li>
+                    <div class="loading_more flex_center" :style="loading_show ? 'display:none;' : '' ">
+                        <div class="move_circle">
+                            <img class="icon_loading" src="images/icon_loading.png">
+                        </div>
+                        <p>Loading . . .</p>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div><!-- end of container_box -->
+
+    <div :loading_type="loading_type" is="loading"></div>
+
+</div>
+
+<script type="text/javascript" src="http://13.124.30.75:45580/resource/js/glovisMall-api.js"></script>
+<script type="text/javascript" src="js/lib/utils.js" ></script>
+<script type="text/javascript" src="js/lib/scroll.js"></script>
+<script type="text/javascript" src="js/brand_gift.js?v1"></script>
+</body>
+</html>

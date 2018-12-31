@@ -100,8 +100,8 @@
 /*}*/
 
 .rmd_category_list > div:last-child > div > div > div  > img {
-  height:.6rem;
-  padding: .1rem 0;
+  height:1rem;
+  /*padding: .1rem 0;*/
 }
 
 .rmd_category_list > div:last-child > div:nth-child(1){
@@ -117,10 +117,14 @@
   margin: 1% 0 0 1%;
 }
 
+.rmd_brand{
+  display: inline-block;
+}
 
 .rmd_brand_list{
   width: 9.5rem;
-  height: 5rem;
+  /*height: 5rem;*/
+  display: inline-block;
   padding: 0 0.25rem;
 }
 
@@ -133,7 +137,7 @@
 .rmd_brand_list > div > div {
   width: 2rem;
   height: 2rem;
-  margin: .25rem;
+  margin: .25rem .1875rem;
   border-radius: 50%;
   background-color: #fff;
   box-shadow:0 0 15px #dcdcdc;
@@ -145,3 +149,153 @@
 .rmd_brand_list > div > div > img{
   width: 1.35rem;
 }
+
+/** 브랜드 */
+
+.brand_menu{
+  margin: .6rem 0 0 0;
+}
+
+.brand_menu_search{
+  margin: 0 .5rem .6rem .5rem;
+  border: 1px solid #D6D6D6;
+  background-color: #fff;
+  position: relative;
+}
+
+.brand_menu_search_input{
+  width: 6.8rem;
+  height: 1rem;
+  display: block;
+  padding: 0 .4rem;
+}
+
+.brand_menu_search_btn{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1.2rem;
+  height: 1rem;
+  background-image: url(../images/icon_search.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: .6rem;
+}
+
+.brand_list{
+  width: 9.5rem;
+  padding: 0 0.25rem;
+  display: inline-block;
+}
+
+.brand_list > div{
+  width: 2.375rem;
+  height: 2.375rem;
+  float: left;
+}
+
+.brand_list > div > div {
+  width: 2rem;
+  height: 2rem;
+  margin: .25rem;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow:0 0 15px #dcdcdc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.brand_list > div > div > img{
+  width: 1.35rem;
+}
+
+.brand_more_view{
+  margin: .7rem 0 0 0;
+}
+
+.brand_more{
+  width: 2.5rem;
+  height: 1rem;
+  margin: auto;
+  font-size: .4rem;
+  text-align: center;
+  line-height: 1rem;
+  border: 1px solid #00498C;
+  color: #00498C;
+  font-weight: bold;
+}
+
+
+
+/** 상품 검색 */
+
+/** 브랜드 */
+
+.productSearch_menu{
+  margin: .6rem 0 0 0;
+  display: flex;
+}
+
+.productSearch_menu_search{
+  margin: 0 .5rem 0 .5rem;
+  border: 1px solid #D6D6D6;
+  background-color: #fff;
+  position: relative;
+  width: 6rem;
+}
+
+.productSearch_menu_search_input{
+  width: 4rem;
+  height: 1rem;
+  display: block;
+  padding: 0 .4rem;
+}
+
+.productSearch_menu_search_btn{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1.2rem;
+  height: 1rem;
+  background-image: url(../images/icon_search.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: .6rem;
+}
+
+.brand_search_select{
+  width: 2.5rem;
+  border: 1px solid #D6D6D6;
+  height: 1rem;
+
+  margin: 0 .5rem 0 0;
+}
+
+.brand_search_select > select{
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0 0 0 .3rem;
+  color: #083F88;
+  font-weight: bold;
+
+  background-image: url(../images/icon_select.png);
+  background-repeat: no-repeat;
+  background-position: 90% 50%;
+  background-size: .4rem;
+  background-color: #fff;
+}
+
+[v-cloak]{
+  display:none;
+}
+
+.header_show{
+  display: block;
+}
+
+.header_hide{
+  display: none;
+}
+

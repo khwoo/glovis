@@ -5,13 +5,16 @@ var vm = new Vue ({
         brandName: '',
         productList: [],
         productLength : 0,
+	    brand_infoShow:true,
         wallet_url :'',
         loading_type : false,
         loadValue : 100, //로드 위치
         productCountType : 1, //
         loadStatus :true,  //로드 상태
         loading_show : true,
+	    coupon_box:'',
         productLoading : false //페이지 초기화 여부
+
     },
     filters:{
         formatPoint:function(value,unit){
@@ -38,6 +41,13 @@ var vm = new Vue ({
 
         });
 
+	    that.coupon_box = [
+		    'coupon_box.html'
+		    , '?'
+		    , 'custNo=' + that.key_custNo
+		    , '&'
+		    , 'uid=' + that.key_uid
+	    ].join('');
         that.wallet_url = [
             'wallet.html'
             ,'?'
@@ -51,12 +61,15 @@ var vm = new Vue ({
     }
     ,methods : {
 
+		brandSearch:function(){
+
+        }
         /**
          *
          *  브랜드 상품 정보 조회
          *
          * */
-        brandProductList : function(){
+        ,brandProductList : function(){
 
             var that = this;
 
