@@ -4,7 +4,8 @@ var vm = new Vue({
 	el: ".container",
 	data: {
 		menuIdx: 0,
-		brandMenuId: 'CTG0002',         // 브랜드 메뉴 아이디
+		brandMenuId: 'CTG0003',         // 브랜드 메뉴 아이디
+		rmdCategoryGroupId :'CTG0001',  // 카테고리 [상품권] 아이디
 		brandMenuNm: '',                // 브랜드 메뉴 명
 		brandListShow:false,            // 브랜드 리스트 노출 여부
 		init:false,                       //
@@ -307,6 +308,10 @@ var vm = new Vue({
 			if(that.menuIdx === that.brandMenuId && !that.brandProductSearchShow) {
 				that.productList = [];
 				return;
+			}
+
+			if(data.salGoodsList == undefined ){
+				data.salGoodsList = [];
 			}
 			if (!scroll) {
 				if (that.productCountType <= 0) {
